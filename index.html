@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="CTRL: A framework for LLM Critic Training via Reinforcement Learning.">
+  <meta name="keywords" content="CTRL, Critic Training, Reinforcement Learning, LLM, Language Models, Code Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CTRL: Critic Training via Reinforcement Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./static/icon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Teaching Language Models to Critique via Reinforcement Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zhxie.site/">Zhihui Xie</a>*<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.sg/citations?user=xrnhH-cAAAAJ&hl=zh-CN">Jie Chen</a>*<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lchenat.github.io/">Liyu Chen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://weichaomao.web.illinois.edu/">Weichao Mao</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jingjingxu.com/">Jingjing Xu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ikekonglp.github.io/">Lingpeng Kong</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Hong Kong,</span>
+            <span class="author-block"><sup>2</sup>Bytedance, Seed</span>
+          </div>
+          <div class="is-size-6">
+            <p>* Equal contribution</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./critic_arxiv.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://critic-rl.github.io" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-globe"></i>
+                  </span>
+                  <span>Project Page</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/zhxieml/critic-rl" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">TL;DR</h2>
+      </div>
+    </div>
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        We propose CTRL, a framework that trains LLMs to critique <strong>without human supervision</strong>, enabling them to <strong>supervise stronger models</strong> and <strong>achieve test-time scaling</strong> through iterative critique-revisions.
+      </h2>
+      <figure class="text-center mt-5">
+        <img src="./static/images/illustration_v2.png" alt="Critic Illustration">
+        <figcaption>CTRL critics demonstrate two fundamental capabilities: (1) <strong>critiquing</strong> - providing iterative refinement through structured technical feedback and targeted improvement suggestions, and (2) <strong>discrimination</strong> - serving as generative reward models to evaluate and compare solution correctness.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">CTRL Framework</h2>
+        <p>
+          The CTRL framework is designed as a two-stage pipeline to train critic models for providing actionable feedback
+          and guiding iterative refinement.
+        </p>
+        <div class="content">  <!-- Adding content class for Bulma's default list styling -->
+          <!-- We focus on competitive programming tasks and general-domain reward modeling tasks: CodeContests, LiveCodeBench (2024.08-2024.11), MBPP+, and JudgeBench. -->
+          <ul style="margin-left: 1.5em; list-style-type: disc;">
+            <li><strong>Stage I</strong>: We develop an execution-guided critique synthesis approach that leverages
+              the model's <strong>reasoning ability over execution feedback</strong> to understand why solutions fail or succeed. Through supervised fine-tuning, the model learns to generate informative critiques that identify key issues and suggest improvements.</li>
+              <li><strong>Stage II</strong>: We optimize critique generation through <strong>Group Relative Policy Optimization (GRPO)</strong> to maximize the probability of obtaining a correct solution after revision. GRPO reduces variance by computing group-based relative advantages and naturally focuses training on problems where high-quality critiques can drive meaningful improvements.</li>
+          </ul>
+          <figure class="text-center mt-5">
+            <img src="./static/images/pipeline_v2.png" alt="CTRL Pipeline Diagram">
+          </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Key Findings</h2>
+
+        <div class="content">  <!-- Adding content class for Bulma's default list styling -->
+          <h3 class="title is-4">Feedback Quality Matters for Iterative Refinement</h3>
+          <p>Our analysis reveals that: <strong>(1)</strong> models struggle with self-critique and raw execution feedback alone,  <strong>(2)</strong> reasoning over execution feedback helps generate more accurate critiques, which grounds our execution-guided synthesis approach, and  <strong>(3)</strong> trained CTRL critics achieve substantially better results by generating more accurate and targeted feedback.</p>
+          <figure class="text-center mt-5">
+            <img src="./static/images/cc_res.png" width="50%" alt="CC Scaling Graph">
+            <figcaption>Performance on CodeContests (Pass@1 %, Δ↑: incorrect→correct, Δ↓: correct→incorrect) using Qwen2.5-Coder-32B-Ins.
+              ×k indicates k critique-revision iterations. †Using unit tests for generation.</figcaption>
+          </figure>
+        </div>
+
+        <div class="content">
+          <h3 class="title is-4">CTRL Critics Enable Test-time Scaling</h3>
+          <p>Despite training only on single-turn critiquing tasks, CTRL generalizes well to multi-turn critique-revision scenarios. We observe one main advantage of CTRL is that it <strong>mitigates compounding errors</strong> by maintaining low incorrect→correct rates across iterations, while baseline models like Qwen2.5-Coder-32B-Ins and GPT-4o suffer from compounding errors during multiple revision rounds.</p>
+          <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+            <figure style="text-align: center; width: 45%;">
+              <img src="./static/images/scaling_v3.png" style="width: 100%;" alt="Test-time Scaling Performance">
+              <figcaption>Pass@1 improves substantially after multi-turn iterations with CTRL critics.</figcaption>
+            </figure>
+            <figure style="text-align: center; width: 45%;">
+              <img src="./static/images/c2w.png" style="width: 100%;" alt="Error Compounding Analysis">
+              <figcaption>CTRL maintains lower incorrect→correct rates across iterations compared to baselines.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="content">
+          <h3 class="title is-4">CTRL Critics Generalize Across Tasks and Models</h3>
+          <p>When paired with its base model (Qwen2.5-Coder-32B-Ins), CTRL achieves a 106.1% relative improvement in Pass@1 on CodeContests through multi-turn critique-revision. The critic maintains its effectiveness when integrated with GPT-4o, improving Pass@1 by 23.5%.</p>
+
+          <figure class="text-center mt-5">
+            <img src="./static/images/main_res.png" width="80%" alt="Performance Scaling Graph">
+            <figcaption>CTRL consistently improves performance across different code generation tasks: CodeContests, LiveCodeBench (24.08-24.11), MBPP+; and generator models: Qwen2.5-Coder, GPT-4o.</figcaption>
+          </figure>
+        </div>
+
+        <div class="content">
+          <h3 class="title is-4">CTRL Critics Are Accurate Generative Reward Models</h3>
+          <p>Our critics achieve competitive performance as generative reward models, even when evaluating outputs from more capable models and generalizing beyond coding tasks. On JudgeBench, CTRL maintains comparable overall accuracy (64.3%) to stronger models like Claude-3.5-Sonnet while excelling in coding-specific evaluations. This demonstrates that unifying textual feedback enables our critics to balance discrimination and critiquing abilities effectively.</p>
+
+          <figure class="text-center mt-5">
+            <img src="./static/images/judgebench.png" width="60%" alt="GenRM">
+            <figcaption>Performance comparison on JudgeBench benchmark.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      This website is adapted from <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
