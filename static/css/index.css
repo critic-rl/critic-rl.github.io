@@ -2,30 +2,52 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-  .section {
-    padding: 0.5rem 0.5rem;  /* Reduced from Bulma's default 3rem */
-  }
+ol {
+  margin: 0;
+  padding-left: 30px; /* Adjusts the indentation of the list */
+}
 
-  .hero-body {
-    padding: 0.5rem 0.5rem;  /* Reduced from Bulma's default */
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: top;
+}
+th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+.markdown-cell {
+  white-space: pre-wrap; /* Preserve line breaks for Markdown content */
+}
 
-  .title:not(:last-child) {
-    margin-bottom: 1rem;  /* Reduced from Bulma's default */
-  }
+.section {
+  padding: 0.5rem 0.5rem;  /* Reduced from Bulma's default 3rem */
+}
 
-  .content {
-    margin-bottom: 0.5rem;  /* Reduced spacing after content blocks */
-  }
+.hero-body {
+  padding: 0.5rem 0.5rem;  /* Reduced from Bulma's default */
+}
 
-  figure {
-    margin: 1rem 0;  /* Reduced from 2em */
-  }
+.title:not(:last-child) {
+  margin-bottom: 1rem;  /* Reduced from Bulma's default */
+}
 
-  .container.is-max-desktop {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
+.content {
+  margin-bottom: 0.5rem;  /* Reduced spacing after content blocks */
+}
+
+figure {
+  margin: 1rem 0;  /* Reduced from 2em */
+}
+
+.container.is-max-desktop {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 
 .content ul {
   list-style: disc outside;
