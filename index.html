@@ -176,7 +176,7 @@
 
         <div class="content">
           <h3 class="title is-4">CTRL Critics Enable Test-time Scaling</h3>
-          <p>Despite training only on single-turn critiquing tasks, CTRL generalizes well to multi-turn critique-revision scenarios. We observe one main advantage of CTRL is that it <strong>mitigates compounding errors</strong> by maintaining low incorrect→correct rates across iterations, while baseline models like Qwen2.5-Coder-32B-Ins and GPT-4o suffer from compounding errors during multiple revision rounds.</p>
+          <p>Despite training only on single-turn critiquing tasks, CTRL generalizes well to multi-turn critique-revision scenarios. We observe one main advantage of CTRL is that it <strong>mitigates compounding errors</strong> by maintaining low correct→incorrect rates across iterations, while baseline models like Qwen2.5-Coder-32B-Ins and GPT-4o suffer from compounding errors during multiple revision rounds.</p>
           <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
             <figure style="text-align: center; width: 45%;">
               <img src="./static/images/scaling_v3.png" style="width: 100%;" alt="Test-time Scaling Performance">
@@ -184,7 +184,7 @@
             </figure>
             <figure style="text-align: center; width: 45%;">
               <img src="./static/images/c2w.png" style="width: 100%;" alt="Error Compounding Analysis">
-              <figcaption>CTRL maintains lower incorrect→correct rates across iterations compared to baselines.</figcaption>
+              <figcaption>CTRL maintains lower correct→incorrect rates across iterations compared to baselines.</figcaption>
             </figure>
           </div>
         </div>
